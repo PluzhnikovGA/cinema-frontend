@@ -2,8 +2,8 @@
 const nextConfig = {
 	poweredByHeader: false,
 	env: {
-		APP_URL: process.env.APP_URL,
-		APP_ENV: process.env.APP_ENV,
+		NEXT_PUBLIC_APP_URL: process.env.APP_URL,
+		NEXT_PUBLIC_APP_ENV: process.env.APP_ENV,
 	},
 	async rewrites() {
 		return [
