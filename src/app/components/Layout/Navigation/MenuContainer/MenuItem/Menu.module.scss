@@ -1,0 +1,11 @@
+.active {
+	@apply border-r-primary;
+
+	> a > span {
+		@apply text-white;
+	}
+
+	> a > svg {
+		@apply fill-primary;
+	}
+}
