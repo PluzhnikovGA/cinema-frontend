@@ -1,4 +1,4 @@
-import { SkeletonLoader } from '@/ui/SkeletonLoader/SkeletonLoader';
+import { SkeletonLoader } from 'ui/SkeletonLoader/SkeletonLoader';
 
 import { Menu } from '../Menu/Menu';
 

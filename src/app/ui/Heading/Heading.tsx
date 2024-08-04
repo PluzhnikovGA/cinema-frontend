@@ -1,5 +1,3 @@
-import classNames from 'classnames';
-
 interface IHeadingProps {
 	title: string;
 	className?: string;

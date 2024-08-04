@@ -1,4 +1,4 @@
-import { SearchField } from '@/ui/SearchField/SearchField';
+import { SearchField } from 'ui/SearchField/SearchField';
 
 import styles from './Search.module.scss';
 import { SearchList } from './SearchList/SearchList';

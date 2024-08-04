@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import logoImage from '@/assets/images/logo.svg';
 
-import { onlyText } from '../string/clearText';
+import { onlyText } from '@/utils/string/clearText';
 
 import { IMetaProps } from './meta.interface';
 

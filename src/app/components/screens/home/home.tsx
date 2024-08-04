@@ -1,4 +1,4 @@
-import { Heading } from '@/ui/Heading/Heading';
+import { Heading } from 'ui/Heading/Heading';
 
 import { Meta } from '@/utils/meta/Meta';
 

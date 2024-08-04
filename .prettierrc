@@ -1,15 +1,15 @@
 {
-  "trailingComma": "es5",
-  "tabWidth": 2,
-  "useTabs": true,
-  "semi": true,
-  "singleQuote": true,
-  "plugins": ["@trivago/prettier-plugin-sort-imports"],
-  "importOrder": [
+	"trailingComma": "es5",
+	"tabWidth": 2,
+	"useTabs": true,
+	"semi": true,
+	"singleQuote": true,
+	"plugins": ["@trivago/prettier-plugin-sort-imports"],
+	"importOrder": [
 		"<THIRD_PARTY_MODULES>",
 		"^@/screens/(.*)$",
 		"^@/components/(.*)$",
-		"^@/ui/(.*)$",
+		"^ui/(.*)$",
 		"^@/hooks/(.*)$",
 		"^@/shared/(.*)$",
 		"^@/services/(.*)$",
