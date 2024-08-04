@@ -1,4 +1,4 @@
-import { API_URL, getGenresUrl } from 'configs/api.config';
+import { getGenresUrl } from 'configs/api.config';
 
 import { IGenre } from '@/shared/types/movie.types';
 
