@@ -2,7 +2,7 @@ import cn from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { MaterialIcon } from '@/components/ui/MaterialIcon/MaterialIcon';
+import { MaterialIcon } from '@/ui/MaterialIcon/MaterialIcon';
 
 import { IMenuItem } from '../menu.interface';
 

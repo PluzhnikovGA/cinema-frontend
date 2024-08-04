@@ -1,5 +1,7 @@
 import { QueryClient, QueryClientProvider } from 'react-query';
 
+import { Layout } from '@/components/Layout/Layout';
+
 interface IMainProviderProps {
 	children: React.ReactNode;
 }
@@ -16,6 +18,8 @@ export function MainProvider(props: IMainProviderProps): JSX.Element {
 	const { children } = props;
 
 	return (
-		<QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+		<QueryClientProvider client={queryClient}>
+			<Layout>{children}</Layout>
+		</QueryClientProvider>
 	);
 }
