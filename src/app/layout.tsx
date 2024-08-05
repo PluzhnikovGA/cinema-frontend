@@ -2,8 +2,9 @@
 
 import { ReactNode } from 'react';
 
-import '../assets/styles/globals.scss';
+import '@/assets/styles/globals.scss';
 
+import HeadProvider from '@/providers/HeadProvider';
 import { MainProvider } from '@/providers/MainProvider';
 
 interface IRootLayoutProps {
@@ -14,6 +15,7 @@ const RootLayout = (props: IRootLayoutProps) => {
 	const { children } = props;
 	return (
 		<html lang="en">
+			<HeadProvider />
 			<body>
 				<MainProvider>{children}</MainProvider>
 			</body>
