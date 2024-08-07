@@ -6,6 +6,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { Button } from '@/ui/FormElements/Button/Button';
 import { Heading } from '@/ui/Heading/Heading';
 
+import { useActions } from '@/hooks/useActions';
 import { useAuth } from '@/hooks/useAuth';
 
 import { Meta } from '@/utils/meta/Meta';
@@ -32,12 +33,7 @@ export function Auth(): JSX.Element {
 		mode: 'onChange',
 	});
 
-	const login = (data: any) => {
-		console.table(data);
-	};
-	const register = (data: any) => {
-		console.table(data);
-	};
+	const { login, register } = useActions();
 
 	const onSubmit: SubmitHandler<IAuthInput> = (data) => {
 		if (type === 'login') login(data);
@@ -70,7 +66,7 @@ export function Auth(): JSX.Element {
 							onClick={() => setType('register')}
 							disabled={isLoading}
 						>
-							Login
+							Register
 						</Button>
 					</div>
 				</form>

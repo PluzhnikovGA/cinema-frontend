@@ -1,3 +1,5 @@
+import { useTypedSelector } from './useTypedSelector';
+
 export function useAuth() {
-	return { user: null, isLoading: false };
+	return useTypedSelector((state) => state.user);
 }
