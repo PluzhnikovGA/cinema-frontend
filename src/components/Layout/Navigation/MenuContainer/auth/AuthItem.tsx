@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import { useAuth } from '@/hooks/useAuth';
 
 import { getAdminHomeUrl } from '@/configs/url.config';
@@ -8,6 +10,16 @@ import { LogoutButton } from './LogoutButton';
 
 export function AuthItems(): JSX.Element {
 	const { user } = useAuth();
+
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		setLoading(false);
+	}, []);
+
+	if (loading) {
+		return <div>Loading...</div>;
+	}
 
 	return (
 		<>
