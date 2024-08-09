@@ -1,7 +1,9 @@
 import { NextPage } from 'next';
 
+import Admin from '@/components/screens/admin/Admin';
+
 const AdminPage: NextPage = () => {
-	return <div>AdminPage</div>;
+	return <Admin />;
 };
 
 export default AdminPage;
