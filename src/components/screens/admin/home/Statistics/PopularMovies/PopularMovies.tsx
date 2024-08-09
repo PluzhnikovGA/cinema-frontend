@@ -18,7 +18,7 @@ import styles from './PopularMovies.module.scss';
 
 const TITLE = 'The most popular movie';
 
-export default function PopularMovies() {
+export default function PopularMovies(): JSX.Element {
 	const { isLoading, data } = useQuery(
 		'mostPopularMovies',
 		() => MovieService.getMostPopular(),

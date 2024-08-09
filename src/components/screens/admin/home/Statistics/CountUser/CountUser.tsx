@@ -9,7 +9,7 @@ import { AdminService } from '@/services/admin.service';
 
 import styles from './CountUser.module.scss';
 
-export default function CountUser() {
+export default function CountUser(): JSX.Element {
 	const { isLoading, data } = useQuery('countUsers', () =>
 		AdminService.getCountUsers()
 	);

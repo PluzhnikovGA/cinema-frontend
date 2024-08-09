@@ -3,10 +3,9 @@ import { Heading } from '@/ui/Heading/Heading';
 
 import { Meta } from '@/utils/meta/Meta';
 
-import styles from './Admin.module.scss';
 import Statistics from './Statistics/Statistics';
 
-export default function Admin() {
+export default function Admin(): JSX.Element {
 	return (
 		<Meta title="Admin panel">
 			<AdminNavigation />
