@@ -27,7 +27,7 @@ export function useActors() {
 				data.map(
 					(actor): ITableItem => ({
 						_id: actor._id,
-						editUrl: getAdminUrl(`actor/edit/${actor._id}`),
+						editUrl: getAdminUrl(`actors/edit/${actor._id}`),
 						items: [actor.name, String(actor.countMovies)],
 					})
 				),

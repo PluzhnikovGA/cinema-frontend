@@ -27,7 +27,7 @@ export function useUsers() {
 				data.map(
 					(user): ITableItem => ({
 						_id: user._id,
-						editUrl: getAdminUrl(`user/edit/${user._id}`),
+						editUrl: getAdminUrl(`users/edit/${user._id}`),
 						items: [user.email, convertMongoDate(user.createdAt)],
 					})
 				),

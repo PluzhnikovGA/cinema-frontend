@@ -11,7 +11,7 @@ export const ActorService = {
 		});
 	},
 
-	async deleteUser(_id: string) {
+	async deleteActor(_id: string) {
 		return axios.delete<string>(getActorsUrl(`/${_id}`));
 	},
 };
