@@ -8,31 +8,35 @@ import { ITableItem } from '@/ui/AdminTable/adminTable.interface';
 
 import { useDebounce } from '@/hooks/useDebounce';
 
-import { UserService } from '@/services/user.service';
+import { MovieService } from '@/services/movie.service';
 
-import { convertMongoDate } from '@/utils/data/convertMongoDate';
+import { getGenresList } from '@/utils/movie/getGenresList';
 import { toastError } from '@/utils/toastError';
 
 import { getAdminUrl } from '@/configs/url.config';
 
-export function useUsers() {
+export function useMovies() {
 	const [searchTerm, setSearchTerm] = useState<string>('');
 	const debounceSearch = useDebounce({ searchTerm, delay: 500 });
 
 	const queryData = useQuery(
-		['usersList', debounceSearch],
-		() => UserService.getAll(debounceSearch),
+		['moviesList', debounceSearch],
+		() => MovieService.getAll(debounceSearch),
 		{
 			select: ({ data }) =>
 				data.map(
-					(user): ITableItem => ({
-						_id: user._id,
-						editUrl: getAdminUrl(`user/edit/${user._id}`),
-						items: [user.email, convertMongoDate(user.createdAt)],
+					(movie): ITableItem => ({
+						_id: movie._id,
+						editUrl: getAdminUrl(`movie/edit/${movie._id}`),
+						items: [
+							movie.title,
+							getGenresList(movie.genres),
+							String(movie.rating),
+						],
 					})
 				),
 			onError: (error) => {
-				toastError(error, 'Users list');
+				toastError(error, 'Movies list');
 			},
 		}
 	);
@@ -42,14 +46,14 @@ export function useUsers() {
 	};
 
 	const { mutateAsync: deleteAsync } = useMutation(
-		['deleteUser'],
-		(userId: string) => UserService.deleteUser(userId),
+		['deleteMovie'],
+		(movieId: string) => MovieService.deleteMovie(movieId),
 		{
 			onError: (error) => {
-				toastError(error, 'Delete user');
+				toastError(error, 'Delete movie');
 			},
 			onSuccess: () => {
-				toastr.success('Delete user', 'Delete was successful');
+				toastr.success('Delete movie', 'delete was successful');
 				queryData.refetch();
 			},
 		}

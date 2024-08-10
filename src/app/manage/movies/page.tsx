@@ -1,7 +1,9 @@
 import { NextPage } from 'next';
 
+import MoviesList from '@/components/screens/admin/movies/MoviesList';
+
 const Movies: NextPage = () => {
-	return <div>Movies</div>;
+	return <MoviesList />;
 };
 
 export default Movies;

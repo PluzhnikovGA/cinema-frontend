@@ -8,31 +8,31 @@ import { ITableItem } from '@/ui/AdminTable/adminTable.interface';
 
 import { useDebounce } from '@/hooks/useDebounce';
 
-import { UserService } from '@/services/user.service';
+import { ActorService } from '@/services/actor.service';
 
 import { convertMongoDate } from '@/utils/data/convertMongoDate';
 import { toastError } from '@/utils/toastError';
 
 import { getAdminUrl } from '@/configs/url.config';
 
-export function useUsers() {
+export function useActors() {
 	const [searchTerm, setSearchTerm] = useState<string>('');
 	const debounceSearch = useDebounce({ searchTerm, delay: 500 });
 
 	const queryData = useQuery(
-		['usersList', debounceSearch],
-		() => UserService.getAll(debounceSearch),
+		['actorsList', debounceSearch],
+		() => ActorService.getAll(debounceSearch),
 		{
 			select: ({ data }) =>
 				data.map(
-					(user): ITableItem => ({
-						_id: user._id,
-						editUrl: getAdminUrl(`user/edit/${user._id}`),
-						items: [user.email, convertMongoDate(user.createdAt)],
+					(actor): ITableItem => ({
+						_id: actor._id,
+						editUrl: getAdminUrl(`actor/edit/${actor._id}`),
+						items: [actor.name, String(actor.countMovies)],
 					})
 				),
 			onError: (error) => {
-				toastError(error, 'Users list');
+				toastError(error, 'Actors list');
 			},
 		}
 	);
@@ -42,14 +42,14 @@ export function useUsers() {
 	};
 
 	const { mutateAsync: deleteAsync } = useMutation(
-		['deleteUser'],
-		(userId: string) => UserService.deleteUser(userId),
+		['deleteActors'],
+		(actorId: string) => ActorService.deleteActor(actorId),
 		{
 			onError: (error) => {
-				toastError(error, 'Delete user');
+				toastError(error, 'Delete actor');
 			},
 			onSuccess: () => {
-				toastr.success('Delete user', 'Delete was successful');
+				toastr.success('Delete actor', 'Delete was successful');
 				queryData.refetch();
 			},
 		}

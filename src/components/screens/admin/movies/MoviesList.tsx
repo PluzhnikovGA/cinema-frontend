@@ -7,21 +7,22 @@ import { Heading } from '@/ui/Heading/Heading';
 
 import { Meta } from '@/utils/meta/Meta';
 
-import { useUsers } from './useUsers';
+import { useMovies } from './useMovies';
 
-export default function UsersList(): JSX.Element {
-	const { handleSearch, isLoading, data, searchTerm, deleteAsync } = useUsers();
+export default function MoviesList(): JSX.Element {
+	const { handleSearch, isLoading, data, searchTerm, deleteAsync } =
+		useMovies();
 	return (
-		<Meta title="Users">
+		<Meta title="Movies">
 			<AdminNavigation />
-			<Heading title="Users" />
+			<Heading title="Movies" />
 
 			<AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} />
 			<AdminTable
 				isLoading={isLoading}
 				tableItems={data || []}
 				removeHandler={deleteAsync}
-				headerItems={['Email', 'Date register']}
+				headerItems={['Title', 'Genres', 'Rating']}
 			/>
 		</Meta>
 	);
