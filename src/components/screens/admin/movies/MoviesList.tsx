@@ -10,14 +10,24 @@ import { Meta } from '@/utils/meta/Meta';
 import { useMovies } from './useMovies';
 
 export default function MoviesList(): JSX.Element {
-	const { handleSearch, isLoading, data, searchTerm, deleteAsync } =
-		useMovies();
+	const {
+		handleSearch,
+		isLoading,
+		data,
+		searchTerm,
+		deleteAsync,
+		createAsync,
+	} = useMovies();
 	return (
 		<Meta title="Movies">
 			<AdminNavigation />
 			<Heading title="Movies" />
 
-			<AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} />
+			<AdminHeader
+				handleSearch={handleSearch}
+				searchTerm={searchTerm}
+				onClick={createAsync}
+			/>
 			<AdminTable
 				isLoading={isLoading}
 				tableItems={data || []}

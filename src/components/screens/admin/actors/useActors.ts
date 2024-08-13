@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { ChangeEvent, useMemo, useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 import { toastr } from 'react-redux-toastr';
@@ -18,6 +19,7 @@ import { getAdminUrl } from '@/configs/url.config';
 export function useActors() {
 	const [searchTerm, setSearchTerm] = useState<string>('');
 	const debounceSearch = useDebounce({ searchTerm, delay: 500 });
+	const { push } = useRouter();
 
 	const queryData = useQuery(
 		['actorsList', debounceSearch],
@@ -33,6 +35,20 @@ export function useActors() {
 				),
 			onError: (error) => {
 				toastError(error, 'Actors list');
+			},
+		}
+	);
+
+	const { mutateAsync: createAsync } = useMutation(
+		['createActor'],
+		() => ActorService.createActor(),
+		{
+			onError: (error) => {
+				toastError(error, 'Create movie');
+			},
+			onSuccess: ({ data: _id }) => {
+				toastr.success('Create actor', 'create was successful');
+				push(getAdminUrl(`actors/edit/${_id}`));
 			},
 		}
 	);
@@ -56,7 +72,13 @@ export function useActors() {
 	);
 
 	return useMemo(
-		() => ({ ...queryData, handleSearch, searchTerm, deleteAsync }),
-		[queryData, searchTerm, deleteAsync]
+		() => ({
+			...queryData,
+			handleSearch,
+			searchTerm,
+			deleteAsync,
+			createAsync,
+		}),
+		[queryData, searchTerm, deleteAsync, createAsync]
 	);
 }

@@ -15,7 +15,7 @@ export default function AdminHeader(props: IAdminHeaderProps): JSX.Element {
 	const { onClick, searchTerm, handleSearch } = props;
 
 	return (
-		<div className={styles.header}>
+		<div className={styles.heading}>
 			<SearchField searchTerm={searchTerm} handleSearch={handleSearch} />
 			{onClick && <AdminCreateButton onClick={onClick} />}
 		</div>

@@ -10,14 +10,24 @@ import { Meta } from '@/utils/meta/Meta';
 import { useGenres } from './useGenres';
 
 export default function GenresList(): JSX.Element {
-	const { handleSearch, isLoading, data, searchTerm, deleteAsync } =
-		useGenres();
+	const {
+		handleSearch,
+		isLoading,
+		data,
+		searchTerm,
+		deleteAsync,
+		createAsync,
+	} = useGenres();
 	return (
 		<Meta title="Genres">
 			<AdminNavigation />
 			<Heading title="Genres" />
 
-			<AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} />
+			<AdminHeader
+				handleSearch={handleSearch}
+				searchTerm={searchTerm}
+				onClick={createAsync}
+			/>
 			<AdminTable
 				isLoading={isLoading}
 				tableItems={data || []}

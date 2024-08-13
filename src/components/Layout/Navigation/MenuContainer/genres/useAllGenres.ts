@@ -6,6 +6,8 @@ import { IGenre } from '@/shared/types/movie.types';
 
 import { GenreService } from '@/services/genre.service';
 
+import { toastError } from '@/utils/toastError';
+
 import { getGenreUrl } from '@/configs/url.config';
 
 import { IMenuItem } from '../menu.interface';
@@ -15,15 +17,19 @@ export function useAllGenres() {
 		'allGenreMenu',
 		async () => {
 			const { data } = await GenreService.getAll();
-			return data.map((genre: IGenre) => ({
-				icon: genre.icon,
-				link: getGenreUrl(genre.slug),
-				title: genre.name,
-			}));
+			return data
+				.filter((genre: IGenre) => genre.name)
+				.map((genre: IGenre) => ({
+					icon: genre.icon,
+					link: getGenreUrl(genre.slug),
+					title: genre.name,
+				}));
 		},
 		{
 			select: (data) => data.slice(0, 4),
-			onError: (error) => console.error('Error fetching all genres:', error),
+			onError(error) {
+				toastError(error, 'Error fetching all genres:');
+			},
 		}
 	);
 

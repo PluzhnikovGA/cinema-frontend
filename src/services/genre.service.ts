@@ -14,8 +14,20 @@ export const GenreService = {
 		});
 	},
 
+	async getPopularGenres(limit: number = 4) {
+		return axiosClassic.get<IGenre[]>(getGenresUrl('/popular'), {
+			params: {
+				limit,
+			},
+		});
+	},
+
 	async getById(_id: string) {
 		return axios.get<IGenreEditInput>(getGenresUrl(`/${_id}`));
+	},
+
+	async createGenre() {
+		return axios.post<string>(getGenresUrl(``));
 	},
 
 	async updateGenre(_id: string, data: IGenreEditInput) {
