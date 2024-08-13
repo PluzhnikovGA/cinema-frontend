@@ -4,7 +4,7 @@ import { FieldError, FieldErrors } from 'react-hook-form';
 
 import styles from './Field.module.scss';
 
-interface IFieldProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface IFieldProps extends InputHTMLAttributes<HTMLInputElement> {
 	placeholder: string;
 	error?: FieldError;
 }
