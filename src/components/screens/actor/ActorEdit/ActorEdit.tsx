@@ -59,28 +59,28 @@ export default function ActorEdit() {
 									setValue('slug', generateSlug(getValues('name')));
 								}}
 							/>
-						</div>
 
-						<Controller
-							control={control}
-							name="photo"
-							defaultValue=""
-							render={({
-								field: { value, onChange },
-								fieldState: { error },
-							}) => (
-								<UploadField
-									onChange={onChange}
-									value={value}
-									error={error}
-									folder="actors"
-									placeholder="Photo"
-								/>
-							)}
-							rules={{
-								required: 'Photo is required!',
-							}}
-						/>
+							<Controller
+								control={control}
+								name="photo"
+								defaultValue=""
+								render={({
+									field: { value, onChange },
+									fieldState: { error },
+								}) => (
+									<UploadField
+										onChange={onChange}
+										value={value}
+										error={error}
+										folder="actors"
+										placeholder="Photo"
+									/>
+								)}
+								rules={{
+									required: 'Photo is required!',
+								}}
+							/>
+						</div>
 
 						<Button>Update</Button>
 					</>
