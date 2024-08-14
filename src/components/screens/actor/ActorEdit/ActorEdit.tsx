@@ -6,6 +6,7 @@ import AdminNavigation from '@/ui/AdminNavigation/AdminNavigation';
 import { Button } from '@/ui/FormElements/Button/Button';
 import { ForwardedField } from '@/ui/FormElements/Field/Field';
 import SlugField from '@/ui/FormElements/SlugField/SlugField';
+import UploadField from '@/ui/FormElements/UploadField/UploadField';
 import formStyles from '@/ui/FormElements/adminForm.module.scss';
 import { Heading } from '@/ui/Heading/Heading';
 import { SkeletonLoader } from '@/ui/SkeletonLoader/SkeletonLoader';
@@ -60,7 +61,7 @@ export default function ActorEdit() {
 							/>
 						</div>
 
-						{/* <Controller
+						<Controller
 							control={control}
 							name="photo"
 							defaultValue=""
@@ -68,12 +69,18 @@ export default function ActorEdit() {
 								field: { value, onChange },
 								fieldState: { error },
 							}) => (
-								// upload photo
+								<UploadField
+									onChange={onChange}
+									value={value}
+									error={error}
+									folder="actors"
+									placeholder="Photo"
+								/>
 							)}
 							rules={{
-									required: 'Photo is required!',
+								required: 'Photo is required!',
 							}}
-						/> */}
+						/>
 
 						<Button>Update</Button>
 					</>
