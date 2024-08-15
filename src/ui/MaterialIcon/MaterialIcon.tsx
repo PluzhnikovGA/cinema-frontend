@@ -1,7 +1,6 @@
-'use client';
-
-import { useEffect, useState } from 'react';
 import * as MaterialIcons from 'react-icons/md';
+
+import { useRenderClient } from '@/hooks/useRenderClient';
 
 import { TMaterialIconName } from '@/shared/types/icon.types';
 
@@ -11,16 +10,10 @@ interface MaterialIconProps {
 
 export function MaterialIcon(props: MaterialIconProps): JSX.Element | null {
 	const { name } = props;
-	const [IconComponent, setIconComponent] = useState<React.ElementType | null>(
-		null
-	);
+	const { isRenderClient } = useRenderClient();
+	const IconComponent = MaterialIcons[name];
 
-	useEffect(() => {
-		const icon = MaterialIcons[name] || MaterialIcons.MdDragIndicator;
-		setIconComponent(() => icon);
-	}, [name]);
-
-	if (!IconComponent) return null;
-
-	return <IconComponent />;
+	if (isRenderClient)
+		return <IconComponent /> || <MaterialIcons.MdDragIndicator />;
+	else return null;
 }

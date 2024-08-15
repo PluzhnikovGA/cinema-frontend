@@ -21,7 +21,7 @@ export default function SlideItem(props: ISlideItemProps): JSX.Element {
 		<div className={styles.slide}>
 			{slide.bigPoster && (
 				<Image
-					layout="fill"
+					fill
 					className={styles.image}
 					src={slide.bigPoster}
 					alt={slide.title}
