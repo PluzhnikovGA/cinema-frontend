@@ -35,11 +35,9 @@ export const useUpload: TUseUpload = (onChange, folder) => {
 
 			const files = e.target.files;
 
-			console.log('files', files);
 			if (files?.length) {
 				const formData = new FormData();
 				formData.append('files', files[0]);
-				console.log(formData);
 				await mutateAsync(formData);
 
 				setTimeout(() => {

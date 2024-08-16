@@ -4,7 +4,7 @@ import { IActor } from '@/shared/types/movie.types';
 
 import { getActorsUrl } from '@/configs/api.config';
 
-import axios from '@/api/interceptors';
+import axios, { axiosClassic } from '@/api/interceptors';
 
 export const ActorService = {
 	async getAll(searchTerm?: string) {
@@ -15,6 +15,10 @@ export const ActorService = {
 
 	async getById(_id: string) {
 		return axios.get<IActorEditInput>(getActorsUrl(`/${_id}`));
+	},
+
+	async getBySlug(slug: string) {
+		return axiosClassic.get<IActor>(getActorsUrl(`/by-slug/${slug}`));
 	},
 
 	async createActor() {
