@@ -36,6 +36,10 @@ input:focus {
 	box-shadow: none !important;
 }
 
+.admin-form {
+	@apply w-1/2 mt-12;
+}
+
 /* Slide animation */
 .slide-animation-enter {
 	opacity: 0;

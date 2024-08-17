@@ -1,7 +1,9 @@
 import { NextPage } from 'next';
 
+import Profile from '@/components/screens/profile/Profile';
+
 const ProfilePage: NextPage = () => {
-	return <div>ProfilePage</div>;
+	return <Profile />;
 };
 
 export default ProfilePage;
