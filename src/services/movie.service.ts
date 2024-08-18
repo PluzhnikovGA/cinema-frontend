@@ -18,6 +18,10 @@ export const MovieService = {
 		return axios.get<IMovieEditInput>(getMoviesUrl(`/${_id}`));
 	},
 
+	async getBySlug(slug: string) {
+		return axios.get<IMovie>(getMoviesUrl(`/by-slug/${slug}`));
+	},
+
 	async createMovie() {
 		return axios.post<string>(getMoviesUrl(''));
 	},
