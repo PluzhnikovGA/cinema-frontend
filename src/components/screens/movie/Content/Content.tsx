@@ -8,6 +8,7 @@ import { getActorUrl, getGenreUrl } from '@/configs/url.config';
 
 import styles from './Content.module.scss';
 import ContentList from './ContentList/ContentList';
+import FavoriteButton from './FavoriteButton/FavoriteButton';
 
 interface IContentProps {
 	movie: IMovie;
@@ -45,6 +46,8 @@ export default function Content(props: IContentProps): JSX.Element {
 				<MaterialIcon name="MdStarRate" />
 				<span>{movie.rating.toFixed(1)}</span>
 			</div>
+
+			<FavoriteButton movieId={movie._id} />
 		</div>
 	);
 }

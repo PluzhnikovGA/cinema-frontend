@@ -11,7 +11,10 @@ import { MoviesList } from '../MoviesList/MoviesList';
 export function PopularMovies(): JSX.Element {
 	const { isLoading, data: popularMovies } = useQuery(
 		'popularMoviesInSidebar',
-		() => MovieService.getMostPopular()
+		() => MovieService.getMostPopular(),
+		{
+			select: (data) => data.slice(0, 5),
+		}
 	);
 	return isLoading ? (
 		<div className="mt-11">
