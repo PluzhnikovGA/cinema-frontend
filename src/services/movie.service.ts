@@ -30,6 +30,12 @@ export const MovieService = {
 		return axios.put<string>(getMoviesUrl(`/${_id}`), data);
 	},
 
+	async updateCountOpenedMovie(slug: string) {
+		return axiosClassic.put<string>(getMoviesUrl(`/update-count-opened`), {
+			slug,
+		});
+	},
+
 	async getMostPopular() {
 		return axiosClassic
 			.get<IMovie[]>(getMoviesUrl('/most-popular'))

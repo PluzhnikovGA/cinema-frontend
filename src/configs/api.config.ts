@@ -5,3 +5,4 @@ export const getGenresUrl = (string?: string) => `/genre${string}`;
 export const getMoviesUrl = (string?: string) => `/movie${string}`;
 export const getUsersUrl = (string: string) => `/user${string}`;
 export const getActorsUrl = (string: string) => `/actor${string}`;
+export const getRatingsUrl = (string: string) => `/rating${string}`;
