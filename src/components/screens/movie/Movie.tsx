@@ -2,6 +2,7 @@ import Banner from '@/ui/Banner/Banner';
 import Gallery from '@/ui/Gallery/Gallery';
 import { IGalleryItem } from '@/ui/Gallery/gallery.interface';
 import { SubHeading } from '@/ui/SubHeading/SubHeading';
+import VideoPlayer from '@/ui/VideoPlayer/VideoPlayer';
 
 import { IMovie } from '@/shared/types/movie.types';
 
@@ -27,6 +28,8 @@ export default function Movie(props: IMovieProps): JSX.Element {
 				image={movie.bigPoster}
 				Detail={() => <Content movie={movie} />}
 			/>
+
+			<VideoPlayer videoSource={movie.videoUrl} slug={movie.slug} />
 
 			<div className="mt-12">
 				<SubHeading title="Similar" />
