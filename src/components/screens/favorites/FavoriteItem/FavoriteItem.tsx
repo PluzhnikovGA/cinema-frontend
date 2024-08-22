@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { useAuth } from '@/hooks/useAuth';
+
 import { IMovie } from '@/shared/types/movie.types';
 
 import { getMovieUrl } from '@/configs/url.config';
@@ -15,10 +17,11 @@ interface IFavoriteItemProps {
 
 export default function FavoriteItem(props: IFavoriteItemProps): JSX.Element {
 	const { movie } = props;
+	const { user } = useAuth();
 
 	return (
 		<div className={styles.itemWrapper}>
-			<FavoriteButton movieId={movie._id} />
+			{user && <FavoriteButton movieId={movie._id} />}
 			<Link href={getMovieUrl(movie.slug)} className={styles.item}>
 				<Image
 					alt={movie.title}

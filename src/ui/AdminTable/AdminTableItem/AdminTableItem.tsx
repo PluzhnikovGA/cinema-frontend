@@ -1,6 +1,6 @@
 import AdminActions from '../AdminActions/AdminActions';
 import styles from '../AdminTable.module.scss';
-import { ITableItem } from '../admintable.interface';
+import { ITableItem } from '../adminTable.interface';
 
 export interface IAdminTableItemProps {
 	tableItem: ITableItem;

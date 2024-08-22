@@ -1,4 +1,5 @@
 export const API_URL = `${process.env.NEXT_PUBLIC_APP_URL}/api`;
+export const SERVER_URL = `${process.env.NEXT_PUBLIC_SERVER_URL}/api`;
 
 export const getAuthUrl = (string: string) => `/auth${string}`;
 export const getGenresUrl = (string?: string) => `/genre${string}`;

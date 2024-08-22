@@ -2,6 +2,8 @@
 
 import { MaterialIcon } from '@/ui/MaterialIcon/MaterialIcon';
 
+import { useAuth } from '@/hooks/useAuth';
+
 import { IActor, IGenre, IMovie } from '@/shared/types/movie.types';
 
 import { getActorUrl, getGenreUrl } from '@/configs/url.config';
@@ -15,6 +17,7 @@ interface IContentProps {
 }
 
 export default function Content(props: IContentProps): JSX.Element {
+	const { user } = useAuth();
 	const { movie } = props;
 
 	return (
@@ -47,7 +50,7 @@ export default function Content(props: IContentProps): JSX.Element {
 				<span>{movie.rating.toFixed(1)}</span>
 			</div>
 
-			<FavoriteButton movieId={movie._id} />
+			{user && <FavoriteButton movieId={movie._id} />}
 		</div>
 	);
 }

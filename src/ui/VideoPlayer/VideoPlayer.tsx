@@ -20,8 +20,6 @@ export default function VideoPlayer(props: IVideoPlayerProps): JSX.Element {
 	const { actions, video, videoRef } = useVideo();
 	const { user } = useAuth();
 
-	console.log(!!user);
-
 	return (
 		<div className={cn(styles.wrapper, { [styles.wrapperNotAuth]: !user })}>
 			{!!user ? (

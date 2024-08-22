@@ -3,7 +3,7 @@ import { SkeletonLoader } from '../SkeletonLoader/SkeletonLoader';
 import styles from './AdminTable.module.scss';
 import AdminTableHeader from './AdminTableHeader';
 import AdminTableItem from './AdminTableItem/AdminTableItem';
-import { ITableItem } from './admintable.interface';
+import { ITableItem } from './adminTable.interface';
 
 interface IAdminTableProps {
 	tableItems: ITableItem[];

@@ -10,8 +10,6 @@ export default function AuthPlaceholder(
 ): JSX.Element {
 	const { slug } = props;
 
-	console.log('here');
-
 	return (
 		<div className={styles.placeholder}>
 			<div>

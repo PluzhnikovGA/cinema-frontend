@@ -1,3 +1,5 @@
+'use client';
+
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 
@@ -9,7 +11,7 @@ export function useAuthRedirect() {
 	const { push } = useRouter();
 	const searchParams = useSearchParams();
 
-	const redirect = searchParams.get('redirect') || '/';
+	const redirect = searchParams ? searchParams.get('redirect') || '/' : '/';
 
 	useEffect(() => {
 		if (user) push(redirect);

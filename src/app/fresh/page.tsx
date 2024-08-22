@@ -32,4 +32,6 @@ async function getStaticData(): Promise<IGetStaticDataResponse> {
 	}
 }
 
+export const revalidate = 60;
+
 export default FreshPage;

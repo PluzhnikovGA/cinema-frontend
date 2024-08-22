@@ -4,12 +4,13 @@ import Cookies from 'js-cookie';
 import { removeTokensStorage } from '@/services/auth/auth.helper';
 import { authService } from '@/services/auth/auth.service';
 
-import { API_URL } from '@/configs/api.config';
+import { API_URL, SERVER_URL } from '@/configs/api.config';
+import { IS_PRODUCTION } from '@/configs/constants';
 
 import { errorCatch, getContentType } from './api.helper';
 
 export const axiosClassic = axios.create({
-	baseURL: API_URL,
+	baseURL: IS_PRODUCTION ? SERVER_URL : API_URL,
 	headers: getContentType(),
 });
 

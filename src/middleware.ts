@@ -16,7 +16,8 @@ export function middleware(request: NextRequest) {
 
 	if (
 		(url.pathname.startsWith('/manage') && userRole !== 'admin') ||
-		(url.pathname.startsWith('/profile') && userRole === '')
+		(url.pathname.startsWith('/profile') && userRole === '') ||
+		(url.pathname.startsWith('/favorites') && userRole === '')
 	) {
 		url.pathname = '/404';
 		return NextResponse.redirect(url);
@@ -38,5 +39,5 @@ function checkUserRole(token: string | undefined): string {
 }
 
 export const config = {
-	matcher: ['/manage/:path*', '/profile/:path*'],
+	matcher: ['/manage/:path*', '/profile/:path*', '/favorites/:path*'],
 };

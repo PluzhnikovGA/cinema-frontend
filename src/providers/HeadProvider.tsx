@@ -19,6 +19,10 @@ export default function HeadProvider(props: HeadProviderProps): JSX.Element {
 					name="viewport"
 					content="width=device-width, initial-scale=1, maximum-scale=1.0"
 				/>
+				<link
+					href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+					rel="stylesheet"
+				/>
 				<Favicons />
 				<meta name="theme-color" content="#18181e" />
 				<meta name="msapplication-navbutton-color" content="#18181e" />

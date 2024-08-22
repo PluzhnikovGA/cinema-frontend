@@ -1,4 +1,4 @@
-import { ICollection } from '@/components/screens/discovery/Discovery';
+import { ICollection } from '@/components/screens/collections/Collections';
 import { IGenreEditInput } from '@/components/screens/genre/GenreEdit/genreEdit.interface';
 
 import { IGenre } from '@/shared/types/movie.types';

@@ -1,6 +1,8 @@
 import cn from 'classnames';
 import Link from 'next/link';
 
+import { getGenreUrl } from '@/configs/url.config';
+
 import CollectionImage from '../CollectionImage/CollectionImage';
 import { ICollection } from '../Collections';
 
@@ -16,7 +18,7 @@ export default function CollectionItem(
 	const { collection } = props;
 
 	return (
-		<Link href={collection.slug} className={styles.collection}>
+		<Link href={getGenreUrl(collection.slug)} className={styles.collection}>
 			<CollectionImage collection={collection} />
 
 			<div className={styles.content}>

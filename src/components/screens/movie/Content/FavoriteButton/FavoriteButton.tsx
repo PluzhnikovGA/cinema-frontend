@@ -11,7 +11,6 @@ import { UserService } from '@/services/user.service';
 import { toastError } from '@/utils/toastError';
 
 import styles from './FavoriteButton.module.scss';
-import HeartImage from './heart-animation.png';
 
 interface IFavoriteButtonProps {
 	movieId: string;
@@ -53,7 +52,7 @@ export default function FavoriteButton(
 			className={cn(styles.button, {
 				[styles.animate]: isSmashed,
 			})}
-			style={{ backgroundImage: `url(${HeartImage.src})` }}
+			style={{ backgroundImage: `url(/heart-animation.png)` }}
 		/>
 	);
 }
