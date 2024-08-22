@@ -1,0 +1,11 @@
+.collections {
+	@apply flex flex-wrap items-center mt-10;
+
+	> a {
+		@apply mr-8 animate-fade;
+	}
+
+	> a:nth-child(3n) {
+		@apply mr-0;
+	}
+}

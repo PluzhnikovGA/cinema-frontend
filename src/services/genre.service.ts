@@ -1,3 +1,4 @@
+import { ICollection } from '@/components/screens/discovery/Discovery';
 import { IGenreEditInput } from '@/components/screens/genre/GenreEdit/genreEdit.interface';
 
 import { IGenre } from '@/shared/types/movie.types';
@@ -12,6 +13,10 @@ export const GenreService = {
 		return axiosClassic.get<IGenre[]>(getGenresUrl(''), {
 			params: searchTerm ? { searchTerm } : {},
 		});
+	},
+
+	async getCollections() {
+		return axiosClassic.get<ICollection[]>(getGenresUrl('/collections'));
 	},
 
 	async getPopularGenres(limit: number = 4) {
